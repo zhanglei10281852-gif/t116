@@ -1,0 +1,59 @@
+[
+  {
+    "name": "水库A",
+    "level_storage_curve": [
+      [100.0, 0.0],
+      [105.0, 5000000.0],
+      [110.0, 12000000.0],
+      [115.0, 22000000.0],
+      [120.0, 35000000.0]
+    ],
+    "dead_storage": 5000000.0,
+    "max_storage": 35000000.0,
+    "min_release": 10.0,
+    "max_release": 500.0,
+    "ramp_rate": 50.0,
+    "order": 1,
+    "downstream": "水库B",
+    "muskingum_K": 2.0,
+    "muskingum_x": 0.25
+  },
+  {
+    "name": "水库B",
+    "level_storage_curve": [
+      [90.0, 0.0],
+      [95.0, 3000000.0],
+      [100.0, 8000000.0],
+      [105.0, 16000000.0],
+      [110.0, 28000000.0]
+    ],
+    "dead_storage": 3000000.0,
+    "max_storage": 28000000.0,
+    "min_release": 8.0,
+    "max_release": 600.0,
+    "ramp_rate": 60.0,
+    "order": 2,
+    "downstream": "水库C",
+    "muskingum_K": 2.0,
+    "muskingum_x": 0.25
+  },
+  {
+    "name": "水库C",
+    "level_storage_curve": [
+      [80.0, 0.0],
+      [85.0, 4000000.0],
+      [90.0, 10000000.0],
+      [95.0, 19000000.0],
+      [100.0, 32000000.0]
+    ],
+    "dead_storage": 4000000.0,
+    "max_storage": 32000000.0,
+    "min_release": 15.0,
+    "max_release": 800.0,
+    "ramp_rate": 80.0,
+    "order": 3,
+    "downstream": null,
+    "muskingum_K": 2.0,
+    "muskingum_x": 0.25
+  }
+]

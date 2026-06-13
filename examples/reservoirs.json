@@ -1,0 +1,70 @@
+{
+  "reservoirs": [
+    {
+      "name": "水库A",
+      "order": 0,
+      "capacity_curve": [
+        {"level": 100.0, "storage": 0.0},
+        {"level": 105.0, "storage": 5000000.0},
+        {"level": 110.0, "storage": 12000000.0},
+        {"level": 115.0, "storage": 21000000.0},
+        {"level": 120.0, "storage": 32000000.0},
+        {"level": 125.0, "storage": 45000000.0}
+      ],
+      "flood_limit_level": 115.0,
+      "dead_level": 105.0,
+      "max_release": 800.0,
+      "ramp_rate": 100.0,
+      "min_release": 20.0,
+      "initial_level": 113.0,
+      "downstream_reservoir": "水库B",
+      "travel_time_hours": 3,
+      "muskingum_K": 3.0,
+      "muskingum_x": 0.25
+    },
+    {
+      "name": "水库B",
+      "order": 1,
+      "capacity_curve": [
+        {"level": 80.0, "storage": 0.0},
+        {"level": 85.0, "storage": 8000000.0},
+        {"level": 90.0, "storage": 18000000.0},
+        {"level": 95.0, "storage": 30000000.0},
+        {"level": 100.0, "storage": 45000000.0},
+        {"level": 105.0, "storage": 62000000.0}
+      ],
+      "flood_limit_level": 93.0,
+      "dead_level": 85.0,
+      "max_release": 1200.0,
+      "ramp_rate": 150.0,
+      "min_release": 30.0,
+      "initial_level": 91.0,
+      "downstream_reservoir": "水库C",
+      "travel_time_hours": 2,
+      "muskingum_K": 2.0,
+      "muskingum_x": 0.25
+    },
+    {
+      "name": "水库C",
+      "order": 2,
+      "capacity_curve": [
+        {"level": 50.0, "storage": 0.0},
+        {"level": 55.0, "storage": 10000000.0},
+        {"level": 60.0, "storage": 22000000.0},
+        {"level": 65.0, "storage": 36000000.0},
+        {"level": 70.0, "storage": 53000000.0},
+        {"level": 75.0, "storage": 72000000.0}
+      ],
+      "flood_limit_level": 63.0,
+      "dead_level": 55.0,
+      "max_release": 1500.0,
+      "ramp_rate": 200.0,
+      "min_release": 50.0,
+      "initial_level": 61.0,
+      "downstream_reservoir": null,
+      "travel_time_hours": 1,
+      "muskingum_K": 1.0,
+      "muskingum_x": 0.25
+    }
+  ]
+}

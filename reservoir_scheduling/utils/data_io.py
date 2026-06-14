@@ -8,6 +8,7 @@ import json
 import os
 from datetime import datetime, timedelta
 from typing import List, Dict, Any
+
 import numpy as np
 
 
@@ -118,8 +119,6 @@ def load_reservoir_config(filepath: str) -> List[Dict[str, Any]]:
     ValueError
         数据不完整或格式错误时抛出
     """
-    import numpy as np
-
     data = _load_json(filepath)
 
     if isinstance(data, dict) and "reservoirs" in data:

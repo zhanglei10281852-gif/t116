@@ -433,7 +433,7 @@ class CascadeOptimizer:
         prev_release = {}
         for reservoir in self.reservoirs:
             name = reservoir.name
-            current_state[name] = reservoir.dead_storage
+            current_state[name] = getattr(reservoir, 'initial_storage', reservoir.dead_storage)
             inflow = self.inflow_forecast.get('inflow', {}).get(name, [])
             if len(inflow) > 0:
                 prev_release[name] = inflow[0]
@@ -488,7 +488,8 @@ class CascadeOptimizer:
             release_scheme_list[name] = opt_release_scheme[name].tolist()
 
         self.simulator.initial_storage = {
-            r.name: r.dead_storage for r in self.reservoirs
+            r.name: getattr(r, 'initial_storage', r.dead_storage)
+            for r in self.reservoirs
         }
         self.simulator.initial_release = {
             r.name: self.inflow_forecast.get('inflow', {}).get(r.name, [0])[0]

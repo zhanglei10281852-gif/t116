@@ -379,7 +379,13 @@ def cmd_optimize(args) -> int:
         _print_info("计算初始方案洪峰用于对比...")
         if initial_scheme is None:
             initial_simulator = CascadeSimulator(reservoirs, inflow_forecast)
-            default_scheme = {r.name: [getattr(r, 'min_release', 0.0)] * inflow_forecast['n_steps'] for r in reservoirs}
+            default_scheme = {}
+            for r in reservoirs:
+                inflow_list = inflow_forecast.get('inflow', {}).get(r.name, [])
+                default_scheme[r.name] = [
+                    inflow_list[i] if i < len(inflow_list) else getattr(r, 'min_release', 0.0)
+                    for i in range(inflow_forecast['n_steps'])
+                ]
             initial_result = initial_simulator.simulate(default_scheme)
         else:
             initial_simulator = CascadeSimulator(reservoirs, inflow_forecast)
